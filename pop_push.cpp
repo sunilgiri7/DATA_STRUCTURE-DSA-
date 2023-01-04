@@ -40,6 +40,16 @@ int isPOP(struct stack * ptr){
         return val;
     }
 }
+int peek(struct stack * ptr, int i){
+    int myval = ptr->top- i + 1;
+    if (myval<0){
+        cout<<"Invalid Position"<<endl;
+        return -1;
+    }
+    else{
+        return myval;
+    }
+}
 int main(){
     struct stack *s= (struct stack *)malloc(sizeof(struct stack));
     s->size = 10;
@@ -61,6 +71,9 @@ int main(){
     isPush(s,555);
     cout<<"after Pushing, Empty: "<<isEmpty(s)<<endl;
     cout<<"after Pushing, Full: "<<isFull(s)<<endl;
-
     cout<<isPOP(s)<<" is POPED from stack "<<endl;
+
+    for(int i=1; i<=s->top+1; i++){
+        cout<<"Position of "<<i<<" is "<<peek(s, i)<<endl;
+    }
 }
