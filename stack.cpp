@@ -47,6 +47,5 @@ int main()
     else{
         cout<<"Not Empty";
     }
-
     return 0;
 }
